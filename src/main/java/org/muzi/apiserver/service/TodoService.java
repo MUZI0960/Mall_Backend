@@ -2,6 +2,8 @@ package org.muzi.apiserver.service;
 
 import jakarta.transaction.Transactional;
 import org.muzi.apiserver.domain.Todo;
+import org.muzi.apiserver.dto.PageRequestDTO;
+import org.muzi.apiserver.dto.PageResponseDTO;
 import org.muzi.apiserver.dto.TodoDTO;
 
 @Transactional
@@ -14,6 +16,9 @@ public interface TodoService {
     void modify(TodoDTO dto);
 
     void remove(Long tno);
+
+    PageResponseDTO<TodoDTO> getList(PageRequestDTO pageRequestDTO);
+
 
     default TodoDTO entityToDTO(Todo todo){
         TodoDTO todoDTO =

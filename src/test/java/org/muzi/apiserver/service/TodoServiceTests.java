@@ -3,6 +3,7 @@ package org.muzi.apiserver.service;
 
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
+import org.muzi.apiserver.dto.PageRequestDTO;
 import org.muzi.apiserver.dto.TodoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,6 +34,13 @@ public class TodoServiceTests {
                 .build();
 
         log.info(todoService.register(todoDTO));
+    }
+
+    @Test
+    public void testGetList(){
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder().page(12).build();
+
+        log.info(todoService.getList(pageRequestDTO));
     }
 
 }
