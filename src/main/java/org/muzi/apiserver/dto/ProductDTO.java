@@ -32,5 +32,8 @@ public class ProductDTO {
     @Builder.Default
     private List<String> uploadFileName = new ArrayList<>();
 
+    @Builder.Default
+    private List<String> uploadedFileNames = new ArrayList<>();
+
 
 }
