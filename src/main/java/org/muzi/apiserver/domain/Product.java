@@ -1,10 +1,7 @@
 package org.muzi.apiserver.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tbl_product")
+@ToString(exclude = "imageList")
 public class Product {
 
     @Id
@@ -44,6 +42,28 @@ public class Product {
     public void changeName(String name){
         this.pname = name;
     }
+
+    public void changeDel(boolean delFlag){
+        this.delFlag = delFlag;
+    }
+
+    public void addImage(ProductImage image){
+        image.setOrd(imageList.size());
+        imageList.add(image);
+
+    }
+
+    public void addImageString(String fileName){
+        ProductImage productImage = ProductImage.builder()
+                .fileName(fileName)
+                .build();
+        addImage(productImage);
+    }
+
+    public void clearList(){
+        this.imageList.clear();
+    }
+
 
 
 

@@ -1,16 +1,14 @@
 package org.muzi.apiserver.domain;
 
 import jakarta.persistence.Embeddable;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Embeddable
 @Getter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class ProductImage {
 
     private String fileName;
